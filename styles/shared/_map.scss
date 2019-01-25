@@ -1,0 +1,64 @@
+// Some overrides for MapboxGL
+.mapboxgl-map {
+  @include font-styles("benton-sans");
+}
+
+.mapboxgl-ctrl-top-right {
+  .mapboxgl-ctrl-group {
+    display: inline-block;
+    float: none;
+  }
+
+  .mapboxgl-ctrl button,
+  .mapboxgl-ctrl-group button {
+    border-radius: 0;
+    background-color: inherit;
+    outline: 0 !important;
+    padding: 0;
+
+    &:hover {
+      background-color: #cdcdcd;
+    }
+  }
+
+  a.mapboxgl-ctrl-logo:empty {
+    outline: 0 !important;
+  }
+
+  // Leaflet overrides for consistency
+  .leaflet-bar a {
+    background-color: #ffffff;
+    border-radius: 0;
+  }
+
+  .mapboxgl-ctrl-geocoder.mapboxgl-ctrl {
+    input {
+      font-size: 12px;
+      width: 100%;
+      border: 0;
+      background-color: transparent;
+      height: 40px;
+      margin: 0;
+      color: rgba(0, 0, 0, 0.5);
+      padding: 10px 10px 10px 40px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  .mapboxgl-ctrl-geocoder ul {
+    margin: 0;
+    padding: 0;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+// Actual map styles
+.map {
+  width: 100%;
+  height: 50em;
+}

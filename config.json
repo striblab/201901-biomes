@@ -11,26 +11,21 @@
   "cms": {
     "defaultArticleContentTemplateRewriteClass": "article-lcd-body-content",
     "pages": [
-      
       {
         "id": "index",
         "articleId": "NEEDS-ARTICLE-ID",
         "lcd": "How the forests will disappear",
         "default": true
       }
-      
     ]
   },
-
-
   "styles": {
-    "globals": [
-    ]
+    "globals": ["https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css"]
   },
   "js": {
     "globals": [
       "https://cdn.polyfill.io/v2/polyfill.min.js",
-      "https://static.startribune.com/assets/libs/pym.js/1.3.2/pym.v1.min.js"
+      "https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js"
     ]
   },
   "publishToken": "2bfd171aa3c43d329fa8206089562e2c",

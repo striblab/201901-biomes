@@ -1,0 +1,115 @@
+<figure class="map-figure">
+  <div class="map" ref:map>
+    <noscript>
+      <p>This map requires Javascript which your browser does not support or the feature is turned off.</p>
+    </noscript>
+  </div>
+</figure>
+
+
+<script>
+  export default {
+    oncreate() {
+      this.drawMap();
+    },
+
+    onupdate({ changed, current, previous }) {
+      console.log({ changed, current, previous });
+      if (changed.tileSource && previous && previous.tileSource) {
+        this.mapBiome();
+      }
+    },
+
+    ondestroy() {
+      if (this.get().map) {
+        this.get().map.remove();
+      }
+    },
+
+    methods: {
+      drawMap() {
+        mapboxgl.accessToken = this.get().accessToken;
+
+        // Create map
+        this.__map = new mapboxgl.Map({
+          container: this.refs.map,
+          style: this.get().mapStyle,
+          attributionControl: false,
+          scrollZoom: true,
+          minZoom: 4,
+          maxZoom: 10,
+          center: this.get().twinCitiesCenter,
+          zoom: 5,
+          maxBounds: this.get().biomeExtent
+        });
+
+        // Add controls
+        this.__map.addControl(new mapboxgl.NavigationControl());
+
+        // Allow scroll zoom on full screen
+        let fullscreenControl = new mapboxgl.FullscreenControl();
+        this.__map.addControl(fullscreenControl);
+        window.document.addEventListener(
+          fullscreenControl._fullscreenchange,
+          () => {
+            if (fullscreenControl._fullscreen) {
+              this.__map.scrollZoom.enable();
+            } else {
+              this.__map.scrollZoom.disable();
+            }
+          }
+        );
+
+        // Fit to biome data
+        this.__map.fitBounds(this.get().biomeExtent);
+
+        // When styles loaded
+        this.__map.on("load", () => {
+          this.mapBiome();
+        });
+      },
+
+      mapBiome() {
+        let biome = this.get().tileSource;
+
+        if (!this.get().mapTileSource) {
+          // Source
+          let source = this.__map.addSource("biome-source", {
+            type: "raster",
+            url: `mapbox://${biome}`,
+            tileSize: 256
+          });
+
+          // Layer
+          this.__map.addLayer(
+            {
+              id: "biome-layer",
+              type: "raster",
+              source: "biome-source"
+            },
+            "waterway-river-canal"
+          );
+
+          this.set({ mapTileSource: source });
+        } else {
+          let s = this.__map.getSource("biome-source");
+          s._options.url = `mapbox://${biome}`;
+          s.load();
+        }
+      }
+    },
+
+    data() {
+      return {
+        accessToken:
+          "pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA",
+        mapStyle: "mapbox://styles/shadowflare/cjfljh7oh6v6k2smuvb3jftac",
+        twinCitiesCenter: [-93.191872, 44.960911],
+        biomeExtent: [
+          [-97.9584725504999767, 41.6248605845000057],
+          [-81.2668059505999736, 49.683193885600005]
+        ]
+      };
+    }
+  };
+</script>

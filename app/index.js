@@ -13,8 +13,6 @@ import utils from './shared/utils.js';
 // Mark page with note about development or staging
 utils.environmentNoting();
 
-
-
 // Adding dependencies
 // ---------------------------------
 // Import local ES6 or CommonJS modules like this:
@@ -50,3 +48,11 @@ utils.environmentNoting();
 //     content
 //   }
 // });
+
+
+import Content from '../templates/_index-content.svelte.html';
+const app = new Content({
+  target: document.querySelector('.article-lcd-body-content'),
+  data: {
+  }
+});
