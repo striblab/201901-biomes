@@ -1,15 +1,23 @@
 # 201901 Biomes
 
-How the forests will disappear
-
-
+How the forests will disappear in the Midwest.
 
 ## Data analysis
 
-_<Describe data and where it comes from.>_
+Data from ???.
 
-See [docs/data-analysis.md](./docs/data-analysis.md).
+To process the original GeoTiff files, make sure they are in `data/sources` and then run the following:
 
+```sh
+./data/lib/process-tifs.sh
+```
+
+This will add color, reproject, convert to MBTiles, and upload to Mapbox. Make sure the following is true:
+
+- Environment variable `MAPBOX_ACCESS_TOKEN` is set.
+- The [Mapbox CLI](https://github.com/mapbox/mapbox-cli-py) is installed.
+
+For more details, see [docs/data-analysis.md](./docs/data-analysis.md).
 
 ## Application data
 
