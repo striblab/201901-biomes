@@ -1,3 +1,33 @@
 /**
  * Project specific styling.
  */
+.key {
+	 @include font-styles("benton-sans");
+	 font-size:.75em;
+  .box {
+  	display:inline-block;
+    width: 1em;
+    height: 1em;
+    display: inline-block;margin-right:.5em;
+  }
+
+  .prairie .box {
+    background-color: #9d5d00;
+  }
+
+  .prairieMix .box {
+    background-color: #cdc800;
+  }
+
+  .broadleaf .box {
+    background-color: #5ebe47;
+  }
+
+  .forestMix .box {
+    background-color: #269e3b;
+  }
+
+  .boreal .box {
+    background-color: #0f8242;
+  }
+}
