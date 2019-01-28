@@ -19,17 +19,20 @@
       </div>
     </div>
   </div>
-  <div class="container-copy bottom-space-extra">
+  <div class="container-copy bottom-space-extra"><img style="float:right;" src="../assets/images/CurrentTHUMB.png">
     <p>Researchers at the University of Minnesota Center for Forest Ecology have created maps that show what might happen to Minnesota forests as climate change warms the atmosphere and precipitation patterns change in the region by 2070.</p>
     <p>Three levels of carbon dioxide representative concentration pathway (RCP) were chosen and models where created to show how forests and advancing open land will drastically change the look of Minnesota. Warm, warmer and hot versions of the models are shown below, each representing our region as it might look in the future.</p>
   </div>
+
   <div class="container-copy bottom-space-extra">
-    <form class="map-controls">
+    <img style="float:left;" src="../assets/images/CO2ppm936.png">
+    <form class="map-controls" style="float:right;display:block;">
       <label for="model-select">Models</label>
       <div class="radio-list">
         {#each models as m, mi}
         <div class="radio">
           <input bind:group="model" value="{ m }" type="radio" id="model-{ m }" name="model-select">
+
           <label for="model-select">{ m }</label>
         </div>
         {/each}
@@ -44,7 +47,7 @@
         {/each}
       </div>
     </form>
-  </div>
+  </div><br clear=all>
   <div class="container-lg">
     <div class="key">
       <div class="prairie"><div class="box">&nbsp;</div>Prairie</div>

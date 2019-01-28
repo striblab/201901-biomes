@@ -1,11 +1,15 @@
 /**
  * Project specific styling.
  */
+
+ .radio-list{display:flex;
+ 	.radio{width:90px;}}
 .key {
+	div{display:inline-block;margin-right:2em;}
 	 @include font-styles("benton-sans");
 	 font-size:.75em;
   .box {
-  	display:inline-block;
+  	
     width: 1em;
     height: 1em;
     display: inline-block;margin-right:.5em;
