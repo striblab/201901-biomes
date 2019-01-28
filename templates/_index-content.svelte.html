@@ -1,11 +1,8 @@
-
 <div class="strib-styles ssa ssb ssc">
-    <div class="container-md">
+  <div class="container-md">
     <div class="hero">
-      <h1>We're all gonna die?</h1>
-
+      <h1>Modelling our future forests</h1>
       <p class="lead container-sm">Here's a lead-in paragraph to let you know what about to happen.</p>
-
       <div class="byline">
         <address>By
           <a rel="author" href="http://startribune.com/maryjo-webster/xxxxxxxx/">Mark Boswell</a>
@@ -17,92 +14,87 @@
         <span class="spacer-alt"></span>
         <time pubdate datetime="2019-01-22T10:00:00">January 22, 2019</time>
       </div>
-
       <div class="share-placeholder">
         <!-- share -->
       </div>
     </div>
   </div>
-
   <div class="container-copy bottom-space-extra">
-    <p>With sales down and housing listings up, the <a href="http://startribune.com/home-sales-dipped-in-the-twin-cities-but-prices-reached-a-record-high-in-2018/504704902/">housing market</a> in the Twin Cities during 2018 was less frothy than it was the year before. Unless, of course, you were a first-time buyer or a downsizing Baby Boomer. Entry-level buyers outpaced sellers, and construction costs soared, pushing sale prices across the metro to a record high.</p>
-
-    <p>To find out which parts of the Twin Cities metro were most feverish, the Star Tribune compiled its third annual Hot Housing Index.  The index ranks communities based on where houses sold more quickly than the year before, prices posted the biggest gains and sellers got closest to their asking price.</p>
+    <p>Researchers at the University of Minnesota Center for Forest Ecology have created maps that show what might happen to Minnesota forests as climate change warms the atmosphere and precipitation patterns change in the region by 2070.</p>
+    <p>Three levels of carbon dioxide representative concentration pathway (RCP) were chosen and models where created to show how forests and advancing open land will drastically change the look of Minnesota. Warm, warmer and hot versions of the models are shown below, each representing our region as it might look in the future.</p>
   </div>
-
-
   <div class="container-copy bottom-space-extra">
     <form class="map-controls">
       <label for="model-select">Models</label>
       <div class="radio-list">
         {#each models as m, mi}
-          <div class="radio">
-            <input bind:group="model" value="{ m }" type="radio" id="model-{ m }" name="model-select">
-            <label for="model-select">{ m }</label>
-          </div>
+        <div class="radio">
+          <input bind:group="model" value="{ m }" type="radio" id="model-{ m }" name="model-select">
+          <label for="model-select">{ m }</label>
+        </div>
         {/each}
       </div>
-
       <label for="rcp-select">Carbon (RCP)</label>
       <div class="radio-list">
         {#each rcps as r, ri}
-          <div class="radio">
-            <input bind:group="rcp" value="{ r }" type="radio" id="model-{ r }" name="rcp-select">
-            <label for="rcp-select">{ r }</label>
-          </div>
+        <div class="radio">
+          <input bind:group="rcp" value="{ r }" type="radio" id="model-{ r }" name="rcp-select">
+          <label for="rcp-select">{ r }</label>
+        </div>
         {/each}
       </div>
     </form>
   </div>
-
-  <div class="container-xl">
+  <div class="container-lg">
+    <div class="key">
+      <div class="prairie"><div class="box">&nbsp;</div>Prairie</div>
+      <div class="prairieMix"><div class="box">&nbsp;</div>Prairie forest mix</div>
+      <div class="broadleaf"><div class="box">&nbsp;</div>Broadleaf forest</div>
+      <div class="forestMix"><div class="box">&nbsp;</div>Forest mix</div>
+      <div class="boreal"><div class="box">&nbsp;</div>Boreal forest</div>
+    </div>
+  </div>
+  <div class="container-lg">
     <Map tileSource="{ tileSource }" />
   </div>
-
   <div class="container-lg">
     <footer class="article-footer">
       <h1>Credits</h1>
-
       <ul class="credits">
         <li>Reporting by <a rel="author" href="http://startribune.com/jim-buchta/10644536/">Jim Buchta</a></li>
         <li>Data analysis by <a rel="author" href="http://startribune.com/maryjo-webster/303594441/">MaryJo Webster</a></li>
         <li>Design and development by <a rel="author" href="http://startribune.com/maryjo-webster/440928273/">Alan Palazzolo</a></li>
       </ul>
-
       <h1>Sources</h1>
-
-      <p>American Community Survey 2017 and <a href="https://www.mplsrealtor.com/" target="_blank" rel="noopener">Minneapolis Area Association of Realtors</a> (MAAR) and RMLS of MN, Inc.  Data deemed reliable but not guaranteed.  Not to be reproduced without MAAR's consent.</p>
+      <p>American Community Survey 2017 and <a href="https://www.mplsrealtor.com/" target="_blank" rel="noopener">Minneapolis Area Association of Realtors</a> (MAAR) and RMLS of MN, Inc. Data deemed reliable but not guaranteed. Not to be reproduced without MAAR's consent.</p>
     </footer>
   </div>
 </div>
-
 <script>
-  import Map from "./shared/_map.svelte.html";
+import Map from "./shared/_map.svelte.html";
 
-  export default {
-    components: {
-      Map
-    },
+export default {
+  components: {
+    Map
+  },
 
-    computed: {
-      tileSource({ model, rcp }) {
-        console.log(model, rcp);
-        return rcp === "current"
-          ? "shadowflare.201901-biomes_current"
-          : `shadowflare.201901-biomes_${model}_${rcp}`;
-      }
-    },
-
-    data() {
-      return {
-        models: ["BCC-CSM1-1", "CCSM4", "MIROC-ESM"],
-        model: "BCC-CSM1-1",
-        rcps: ["current", "RCP26", "RCP45", "RCP85"],
-        rcp: "current"
-      };
+  computed: {
+    tileSource({ model, rcp }) {
+      console.log(model, rcp);
+      return rcp === "current" ?
+        "shadowflare.201901-biomes_current" :
+        `shadowflare.201901-biomes_${model}_${rcp}`;
     }
-  };
+  },
+
+  data() {
+    return {
+      models: ["BCC-CSM1-1", "CCSM4", "MIROC-ESM"],
+      model: "BCC-CSM1-1",
+      rcps: ["current", "RCP26", "RCP45", "RCP85"],
+      rcp: "current"
+    };
+  }
+};
+
 </script>
-
-
-
