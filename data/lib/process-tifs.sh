@@ -8,6 +8,10 @@ SOURCES="../sources";
 BUILD="../build";
 mkdir -p $BUILD;
 
+# Output for thumbnails
+OUTPUT_IMAGES="../../assets/images/biomes";
+mkdir -p $OUTPUT_IMAGES;
+
 # Common
 COLORS="./tiff-colors.txt";
 
@@ -50,11 +54,39 @@ to_mbtiles "$SOURCES/biome_MIROC.ESM_rcp85_2061.2080_.tif" "201901-biomes_MIROC-
 to_mbtiles "$SOURCES/biome_raster_1979-2013_albers.tif" "201901-biomes_current";
 
 
-# Upload to mapbox
-for file in /home/user/*; do
-  echo `basename "$filename"`
-done
+# Make gifs
+convert -delay 200 -loop 1 $BUILD/colors-201901-biomes_current.tiff $BUILD/colors-201901-biomes_BCC-CSM1-1*.tiff $BUILD/201901-biomes_BCC-CSM1-1.gif;
+convert -delay 200 -loop 1 $BUILD/colors-201901-biomes_current.tiff $BUILD/colors-201901-biomes_CCSM4*.tiff $BUILD/201901-biomes_CCSM4.gif;
+convert -delay 200 -loop 1 $BUILD/colors-201901-biomes_current.tiff $BUILD/colors-201901-biomes_MIROC-ESM*.tiff $BUILD/201901-biomes_MIROC-ESM.gif;
 
+
+# Make thumbnails
+convert $BUILD/colors-201901-biomes_current.tiff -resize 200x200 $OUTPUT_IMAGES/201901-biomes_current-rect.png;
+convert $BUILD/colors-201901-biomes_current.tiff -gravity west -resize 200x200^ -crop 200x200+0+0 +repage $OUTPUT_IMAGES/201901-biomes_current-square.png;
+
+convert $BUILD/colors-201901-biomes_BCC-CSM1-1_RCP26.tiff -resize 200x200 $OUTPUT_IMAGES/201901-biomes_BCC-CSM1-1_RCP26-rect.png;
+convert $BUILD/colors-201901-biomes_BCC-CSM1-1_RCP26.tiff -gravity west -resize 200x200^ -crop 200x200+0+0 +repage $OUTPUT_IMAGES/201901-biomes_BCC-CSM1-1_RCP26-square.png;
+convert $BUILD/colors-201901-biomes_BCC-CSM1-1_RCP45.tiff -resize 200x200 $OUTPUT_IMAGES/201901-biomes_BCC-CSM1-1_RCP45-rect.png;
+convert $BUILD/colors-201901-biomes_BCC-CSM1-1_RCP45.tiff -gravity west -resize 200x200^ -crop 200x200+0+0 +repage $OUTPUT_IMAGES/201901-biomes_BCC-CSM1-1_RCP45-square.png;
+convert $BUILD/colors-201901-biomes_BCC-CSM1-1_RCP85.tiff -resize 200x200 $OUTPUT_IMAGES/201901-biomes_BCC-CSM1-1_RCP85-rect.png;
+convert $BUILD/colors-201901-biomes_BCC-CSM1-1_RCP85.tiff -gravity west -resize 200x200^ -crop 200x200+0+0 +repage $OUTPUT_IMAGES/201901-biomes_BCC-CSM1-1_RCP85-square.png;
+
+convert $BUILD/colors-201901-biomes_CCSM4_RCP26.tiff -resize 200x200 $OUTPUT_IMAGES/201901-biomes_CCSM4_RCP26-rect.png;
+convert $BUILD/colors-201901-biomes_CCSM4_RCP26.tiff -gravity west -resize 200x200^ -crop 200x200+0+0 +repage $OUTPUT_IMAGES/201901-biomes_CCSM4_RCP26-square.png;
+convert $BUILD/colors-201901-biomes_CCSM4_RCP45.tiff -resize 200x200 $OUTPUT_IMAGES/201901-biomes_CCSM4_RCP45-rect.png;
+convert $BUILD/colors-201901-biomes_CCSM4_RCP45.tiff -gravity west -resize 200x200^ -crop 200x200+0+0 +repage $OUTPUT_IMAGES/201901-biomes_CCSM4_RCP45-square.png;
+convert $BUILD/colors-201901-biomes_CCSM4_RCP85.tiff -resize 200x200 $OUTPUT_IMAGES/201901-biomes_CCSM4_RCP85-rect.png;
+convert $BUILD/colors-201901-biomes_CCSM4_RCP85.tiff -gravity west -resize 200x200^ -crop 200x200+0+0 +repage $OUTPUT_IMAGES/201901-biomes_CCSM4_RCP85-square.png;
+
+convert $BUILD/colors-201901-biomes_MIROC-ESM_RCP26.tiff -resize 200x200 $OUTPUT_IMAGES/201901-biomes_MIROC-ESM_RCP26-rect.png;
+convert $BUILD/colors-201901-biomes_MIROC-ESM_RCP26.tiff -gravity west -resize 200x200^ -crop 200x200+0+0 +repage $OUTPUT_IMAGES/201901-biomes_MIROC-ESM_RCP26-square.png;
+convert $BUILD/colors-201901-biomes_MIROC-ESM_RCP45.tiff -resize 200x200 $OUTPUT_IMAGES/201901-biomes_MIROC-ESM_RCP45-rect.png;
+convert $BUILD/colors-201901-biomes_MIROC-ESM_RCP45.tiff -gravity west -resize 200x200^ -crop 200x200+0+0 +repage $OUTPUT_IMAGES/201901-biomes_MIROC-ESM_RCP45-square.png;
+convert $BUILD/colors-201901-biomes_MIROC-ESM_RCP85.tiff -resize 200x200 $OUTPUT_IMAGES/201901-biomes_MIROC-ESM_RCP85-rect.png;
+convert $BUILD/colors-201901-biomes_MIROC-ESM_RCP85.tiff -gravity west -resize 200x200^ -crop 200x200+0+0 +repage $OUTPUT_IMAGES/201901-biomes_MIROC-ESM_RCP85-square.png;
+
+
+# Upload to mapbox
 mapbox upload shadowflare.201901-biomes_current $BUILD/201901-biomes_current.mbtiles;
 
 mapbox upload shadowflare.201901-biomes_BCC-CSM1-1_RCP26 $BUILD/201901-biomes_BCC-CSM1-1_RCP26.mbtiles;
@@ -68,9 +100,3 @@ mapbox upload shadowflare.201901-biomes_CCSM4_RCP85 $BUILD/201901-biomes_CCSM4_R
 mapbox upload shadowflare.201901-biomes_MIROC-ESM_RCP26 $BUILD/201901-biomes_MIROC-ESM_RCP26.mbtiles;
 mapbox upload shadowflare.201901-biomes_MIROC-ESM_RCP45 $BUILD/201901-biomes_MIROC-ESM_RCP45.mbtiles;
 mapbox upload shadowflare.201901-biomes_MIROC-ESM_RCP85 $BUILD/201901-biomes_MIROC-ESM_RCP85.mbtiles;
-
-
-# Make gifs
-convert -delay 200 -loop 1 $BUILD/colors-201901-biomes_current.tiff $BUILD/colors-201901-biomes_BCC-CSM1-1*.tiff $BUILD/201901-biomes_BCC-CSM1-1.gif;
-convert -delay 200 -loop 1 $BUILD/colors-201901-biomes_current.tiff $BUILD/colors-201901-biomes_CCSM4*.tiff $BUILD/201901-biomes_CCSM4.gif;
-convert -delay 200 -loop 1 $BUILD/colors-201901-biomes_current.tiff $BUILD/colors-201901-biomes_MIROC-ESM*.tiff $BUILD/201901-biomes_MIROC-ESM.gif;
