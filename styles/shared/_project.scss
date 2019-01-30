@@ -14,40 +14,49 @@
   max-width: 550px;
 }
 
+// CURRENT BIOME & UPPER KEY
 .currentBiome {
   float: right;
   display: block;
   margin: 0 -6em 2em 3em;
 
   .key {
+    float: none;
+    margin-top: .5em;
+    display: block;
+    width: 300px;
+
     .keyElement {
       display: block;
-    }
 
-    margin-top:.5em;
-    display: block;
-    width:300px;
+      .box {
+        width: 2em;
+        height: .75em;
+        height: .75em;
+      }
+    }
 
     div {
-
       margin-right: .5em;
     }
-
   }
 }
 
+// LOWER KEY
 .key {
+  float: right;
+
   div {
     display: inline-block;
-    margin-right: 2em;
+    margin-right: .5em;
   }
 
   @include font-styles("benton-sans");
-  font-size:.75em;
+  font-size:.65em;
 
   .box {
 
-    width: 2em;
+    width: 1em;
     height: .75em;
     display: inline-block;
     margin-right: .5em;
@@ -78,4 +87,90 @@
     // background-color: #0f8242;
     background-color: #007300;
   }
+}
+
+// SCENARIO TABLE
+
+table.scenarioTable {
+  margin-top: 50px;
+  @include font-styles("benton-sans");
+  font-size: .90em;
+  letter-spacing: -.5;
+
+  td {
+    border: none;
+    padding: 0;
+  }
+
+  td.head {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0;
+  }
+
+  td.scenario {
+    padding-top: 1em;
+    width: 185px;
+    color: #ccc;
+
+    .circle {
+      display: inline;
+      float: left;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      padding: 7px;
+      background: #ccc;
+      border: none;
+      color: #fff;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0 10px 40px 0;
+    }
+
+    &.active {
+      color: #444;
+
+      .circle {
+        background: red;
+      }
+    }
+  }
+
+  td.bigImage {}
+
+  td.warm,
+  td.warmer,
+  td.hot {
+    width: 110px;
+    height: 102px;
+    margin: 10px 0 0 10px;
+    opacity: .2;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+// MAP AND INFO BOX
+.container-lg.map {
+  position: relative;
+}
+
+.infoBox {
+  display: none;
+  border-radius: 10px;
+  position: absolute;
+  width: 320px;
+  background-color: #ccc;
+  padding: 1em;
+  top: 50px;
+  right: 30px;
+}
+
+figure.map-figure {
+  display: block;
+  top: 0;
 }

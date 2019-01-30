@@ -57,11 +57,7 @@
     <p>The climate is likely to change too fast for plant species to migrate to their new locations, Toot said. &ldquo;We’ll probably need to use assisted migration&rdquo; to help plants move to the new locations, successfully replacing the plants and trees that can’t survive the new climate.</p>
     <p>The project is part of an exhibit at the U’s Bell Museum in St. Paul, Weather to Climate: Our Changing World, which runs Feb. 2 to April 28.</p>
   </div>
-  <div class="container-copy bottom-space-extra">
-
-
-
-
+  <div class="container-copy bottom-space-extra" style="display:none">
     <img style="float:left;" src="../assets/images/CO2ppm936.png">
     <form class="map-controls" style="float:right;display:block;">
       <label for="model-select">Models</label>
@@ -86,10 +82,50 @@
     </form>
   </div><br clear=all>
   <div class="container-lg">
-    <table><tr><td>Scenario1</td><td rowspan=3>big image</td><td>gridA3</td><td>gridB3</td><td>gridC3</td></tr>
-      <tr><td>Scenario2</td><td>gridA2</td><td>gridB2</td><td>gridC2</td></tr>
-      <tr><td>Scenario3</td><td>gridA1</td><td>gridB1</td><td>gridC1</td></tr></table>
-
+    <h3>EXPLORE THE DATA</h3>
+    <p>Start below to choose a rate of carbon change for the year 2070. Then select one of the models (warm, warmer and hot) and explore the big map below to see how changes would affect your part of the region.
+</p>
+    <table class="scenarioTable">
+      <tr>
+        <td colspan=2 class="head">CHOOSE A SCENARIO
+        </td>
+        <td colspan=3 class="head">CHOOSE A MODEL
+        </td>
+      </tr>
+      <tr>
+        <td colspan=2>
+          Global average for CO<sub>2</sub> in the atmosphere.
+        </td>
+        <td>Warm</td>
+        <td>Warmer</td>
+        <td>Hot</td>
+      </tr>
+      <tr class="active">
+        <td class="scenario active">
+          <div class="circle">1</div>No change in current rate of CO<sub>2</sub> emissions.
+        </td>
+        <td rowspan=3>big image</td>
+        <td class="warm active"><img src="http://stmedia.startribune.com/images/BCC936.png"></td>
+        <td class="warmer active"><img src="http://stmedia.startribune.com/images/CSS936.png"></td>
+        <td class="hot active"><img src="http://stmedia.startribune.com/images/Miroc936.png"></td>
+      </tr>
+      <tr>
+        <td class="scenario">
+          <div class="circle">2</div>Minor decrease in rate of CO<sub>2</sub> emissions.
+        </td>
+        <td class="warm"><img src="http://stmedia.startribune.com/images/BCC538.png"></td>
+        <td class="warmer"><img src="http://stmedia.startribune.com/images/CSS538.png"></td>
+        <td class="hot"><img src="http://stmedia.startribune.com/images/Miroc538.png"></td>
+      </tr>
+      <tr>
+        <td class="scenario">
+          <div class="circle">3</div>Major decrease in rate of CO<sub>2</sub> emissions.
+        </td>
+        <td class="warm"><img src="http://stmedia.startribune.com/images/BCC421.png"></td>
+        <td class="warmer"><img src="http://stmedia.startribune.com/images/CSS421.png"></td>
+        <td class="hot"><img src="http://stmedia.startribune.com/images/Miroc421.png"></td>
+      </tr>
+    </table>
     <div class="key">
       <div class="prairie">
         <div class="box">&nbsp;</div>Prairie
@@ -108,8 +144,11 @@
       </div>
     </div>
   </div>
-  <div class="container-lg">
+  <div class="container-lg map">
     <Map tileSource="{ tileSource }" />
+    <div class="infoBox">
+      <p>Under the &ldquo;business as usual&rdquo; scenario, greenhouse gases continue to pour into the atmosphere at their current rate, pushing overall atmospheric CO2 levels to 936 ppm by 2070. If temperatures also rise at the pace of the most pessimistic of the three computer models, most of Minnesota’s northern birch and conifer forests would migrate northward out of the state entirely and much of the state will resemble Kansas today</p>
+    </div>
   </div>
   <div class="container-lg">
     <footer class="article-footer">
