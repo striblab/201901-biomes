@@ -19,12 +19,49 @@
       </div>
     </div>
   </div>
-  <div class="container-copy bottom-space-extra"><img style="float:right;" src="../assets/images/CurrentTHUMB.png">
-    <p>Researchers at the University of Minnesota Center for Forest Ecology have created maps that show what might happen to Minnesota forests as climate change warms the atmosphere and precipitation patterns change in the region by 2070.</p>
-    <p>Three levels of carbon dioxide representative concentration pathway (RCP) were chosen and models where created to show how forests and advancing open land will drastically change the look of Minnesota. Warm, warmer and hot versions of the models are shown below, each representing our region as it might look in the future.</p>
-  </div>
-
   <div class="container-copy bottom-space-extra">
+    <p>For years, Minnesota climate and forest scientists have suspected that the state’s tree cover would slowly start creeping northeast as the Earth’s climate warmed; the prairies that predominate in the southwest of the state would take over what was previously a mix of fields and deciduous woods.</p>
+    <p>It wouldn’t happen overnight, but it would happen — and the startling thought that Minnesota’s signature forests might be lost altogether was always a worrisome possibility.</p>
+    <p>But the technical tools to predict these decades-long changes with any specificity were always tantalizingly out of reach. Until now. That ability came in the form of world-wide climate projection computer models that were developed by scientists at other research institutions around the world, and then adapted to predict local changes to Minnesota’s climate and landscape.</p>
+    <p>Their findings were presented at a special series of committee hearings conducted by the Minnesota House of Representatives, with key testimony by Lee Frelich, director of the University of Minnesota Center for Forest Ecology and his associates. The core of their presentation was a set of maps of Minnesota and the Great Lakes region showing the current forest and prairie zones and how they will change and migrate to the northeast as the climate warms and precipitation changes.</p>
+    <p>According to Frelich, a key component of climate change is the increased amount of carbon dioxide and other greenhouse gases in the atmosphere and the way they retain more and more heat near the earth’s surface. Humans have introduced vast amounts of CO<sub>2</sub> to the atmosphere over the last 150 years and continue to do so. Because trees can be extremely sensitive to average temperatures and rainfall, and because Minnesota contains the edges of several &ldquo;biomes,&rdquo; where tree species are especially vulnerable to change, Minnesota’s forest cover could change rapidly over the next century. Oaks that are common in western and southwestern Minnesota are likely to migrate north, while the pines of the &ldquo;boreal&rdquo; forest in northeastern Minnesota are likely to recede north and perhaps disappear from the state entirely.</p>
+    <p>The result is nine maps — three scenarios for different CO<sub>2</sub> levels, each with three predictions of the resulting temperatures — each reflecting thousands of variables that have been painstakingly entered into the computer models.</p>
+    <p>Ryan Toot, a graduate student in the U’s Natural Resources Science and Management program, said the researchers ran multiple climate models and multiple emission scenarios because &ldquo;the future is uncertain,&rdquo; even under the most sophisticated computer forecasts. From roughly 40 computer models available to scientists today, the U researchers chose three, known as BCC, CCSM4 and Miroc. They capture the range of uncertainty for each of the concentrations of greenhouse gases by choosing cool, average and moderate potential for the region.</p>
+    <p>Toot wrote the software that calculated the predicted vegetation from the climate data. The maps have a surprising level of detail, with each square of the maps representing a square kilometer.</p>
+    <div class="currentBiome">
+      <h4>CURRENT BIOME ZONES</h4>
+      <img src="http://stmedia.startribune.com/images/climate-current300px.png" >
+      <div class="key">
+        <h4>ZONE KEY</h4>
+        <div class="keyElement prairie">
+          <div class="box">&nbsp;</div>Prairie
+        </div>
+        <div class="keyElement prairieMix">
+          <div class="box">&nbsp;</div>Prairie forest mix
+        </div>
+        <div class="keyElement broadleaf">
+          <div class="box">&nbsp;</div>Broadleaf forest
+        </div>
+        <div class="keyElement forestMix">
+          <div class="box">&nbsp;</div>Forest mix
+        </div>
+        <div class="keyElement boreal">
+          <div class="box">&nbsp;</div>Boreal forest
+        </div>
+      </div>
+    </div>
+    <p>According to Frelich, &ldquo;We knew from (research), that the forest and grassland transition occurs right where the climatic water balance is zero — evaporation and precipitation are equal. Where the balance is negative (more evaporation from soil and plants than precipitation), grasslands occur, and where the balance is positive (precipitation greater then evaporation) forests occur.&rdquo;</p>
+    <p>Boreal forests, which feature conifers and deep clear lakes, occur where mean summer temperatures fall below a certain threshold, Frelich said. Temperate forest occur where the mean is above that threshold.</p>
+    <p>&ldquo;With this information, it was possible to analyze amount of evaporation and precipitation, and mean summer temperature now and in 2070, for each square kilometer,&rdquo; Frelich explained. &ldquo;If summers are projected to be cool enough with positive water balance, then a given grid square would be boreal forest. Where summers are warm with positive water balance, we have temperate forest. A where there is negative water balance, we have prairie, regardless of temperature.&rdquo; </p>
+    <p>&ldquo;Summer climates in the future will shift south southwest from 100 to 300 miles, depending on the scenario,&rdquo; said Frelich in an e-mail. &ldquo;So Voyageurs National Park could [become] St. Cloud or northwestern Iowa.&rdquo; </p>
+    <p>The climate is likely to change too fast for plant species to migrate to their new locations, Toot said. &ldquo;We’ll probably need to use assisted migration&rdquo; to help plants move to the new locations, successfully replacing the plants and trees that can’t survive the new climate.</p>
+    <p>The project is part of an exhibit at the U’s Bell Museum in St. Paul, Weather to Climate: Our Changing World, which runs Feb. 2 to April 28.</p>
+  </div>
+  <div class="container-copy bottom-space-extra">
+
+
+
+
     <img style="float:left;" src="../assets/images/CO2ppm936.png">
     <form class="map-controls" style="float:right;display:block;">
       <label for="model-select">Models</label>
@@ -32,29 +69,43 @@
         {#each models as m, mi}
         <div class="radio">
           <input bind:group="model" value="{ m }" type="radio" id="model-{ m }" name="model-select">
-
           <label for="model-select">{ m }</label>
+          <div class="mapButton"><img src="../assets/images/model-{ m }.png"></div>
+          </div>
+          {/each}
         </div>
-        {/each}
-      </div>
-      <label for="rcp-select">Carbon (RCP)</label>
-      <div class="radio-list">
-        {#each rcps as r, ri}
-        <div class="radio">
-          <input bind:group="rcp" value="{ r }" type="radio" id="model-{ r }" name="rcp-select">
-          <label for="rcp-select">{ r }</label>
+        <label for="rcp-select">Carbon (RCP)</label>
+        <div class="radio-list">
+          {#each rcps as r, ri}
+          <div class="radio">
+            <input bind:group="rcp" value="{ r }" type="radio" id="model-{ r }" name="rcp-select">
+            <label for="rcp-select">{ r }</label>
+          </div>
+          {/each}
         </div>
-        {/each}
-      </div>
     </form>
   </div><br clear=all>
   <div class="container-lg">
+    <table><tr><td>Scenario1</td><td rowspan=3>big image</td><td>gridA3</td><td>gridB3</td><td>gridC3</td></tr>
+      <tr><td>Scenario2</td><td>gridA2</td><td>gridB2</td><td>gridC2</td></tr>
+      <tr><td>Scenario3</td><td>gridA1</td><td>gridB1</td><td>gridC1</td></tr></table>
+
     <div class="key">
-      <div class="prairie"><div class="box">&nbsp;</div>Prairie</div>
-      <div class="prairieMix"><div class="box">&nbsp;</div>Prairie forest mix</div>
-      <div class="broadleaf"><div class="box">&nbsp;</div>Broadleaf forest</div>
-      <div class="forestMix"><div class="box">&nbsp;</div>Forest mix</div>
-      <div class="boreal"><div class="box">&nbsp;</div>Boreal forest</div>
+      <div class="prairie">
+        <div class="box">&nbsp;</div>Prairie
+      </div>
+      <div class="prairieMix">
+        <div class="box">&nbsp;</div>Prairie forest mix
+      </div>
+      <div class="broadleaf">
+        <div class="box">&nbsp;</div>Broadleaf forest
+      </div>
+      <div class="forestMix">
+        <div class="box">&nbsp;</div>Forest mix
+      </div>
+      <div class="boreal">
+        <div class="box">&nbsp;</div>Boreal forest
+      </div>
     </div>
   </div>
   <div class="container-lg">

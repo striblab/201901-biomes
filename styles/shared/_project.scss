@@ -2,36 +2,80 @@
  * Project specific styling.
  */
 
- .radio-list{display:flex;
- 	.radio{width:90px;}}
+.radio-list {
+  display: flex;
+
+  .radio {
+    width: 90px;
+  }
+}
+
+.container-copy {
+  max-width: 550px;
+}
+
+.currentBiome {
+  float: right;
+  display: block;
+  margin: 0 -6em 2em 3em;
+
+  .key {
+    .keyElement {
+      display: block;
+    }
+
+    margin-top:.5em;
+    display: block;
+    width:300px;
+
+    div {
+
+      margin-right: .5em;
+    }
+
+  }
+}
+
 .key {
-	div{display:inline-block;margin-right:2em;}
-	 @include font-styles("benton-sans");
-	 font-size:.75em;
+  div {
+    display: inline-block;
+    margin-right: 2em;
+  }
+
+  @include font-styles("benton-sans");
+  font-size:.75em;
+
   .box {
-  	
-    width: 1em;
-    height: 1em;
-    display: inline-block;margin-right:.5em;
+
+    width: 2em;
+    height: .75em;
+    display: inline-block;
+    margin-right: .5em;
+    line-height: 1;
   }
 
   .prairie .box {
-    background-color: #9d5d00;
+    // background-color: #9d5d00;
+    background-color: #b34d33;
   }
 
   .prairieMix .box {
-    background-color: #cdc800;
+    // background-color: #cdc800;
+    background-color: #f2e6b3;
   }
 
   .broadleaf .box {
-    background-color: #5ebe47;
+    // background-color: #5ebe47;
+    background-color: #a3d994;
   }
 
   .forestMix .box {
-    background-color: #269e3b;
+    // background-color: #269e3b;
+    background-color: #66bf4d;
   }
 
   .boreal .box {
-    background-color: #0f8242;
+    // background-color: #0f8242;
+    background-color: #007300;
   }
 }
