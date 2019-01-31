@@ -1,7 +1,7 @@
 <div class="strib-styles ssa ssb ssc">
   <div class="container-md">
     <div class="hero">
-      <h1>Modelling our future forests</h1>
+      <h1>CLIMATE CHANGE THREATENS OUR FORESTS</h1>
       <p class="lead container-sm">Here's a lead-in paragraph to let you know what about to happen.</p>
       <div class="byline">
         <address>By
@@ -57,18 +57,14 @@
     <p>The climate is likely to change too fast for plant species to migrate to their new locations, Toot said. &ldquo;We’ll probably need to use assisted migration&rdquo; to help plants move to the new locations, successfully replacing the plants and trees that can’t survive the new climate.</p>
     <p>The project is part of an exhibit at the U’s Bell Museum in St. Paul, Weather to Climate: Our Changing World, which runs Feb. 2 to April 28.</p>
   </div>
-
   <div class="container-lg">
     <h3>EXPLORE THE DATA</h3>
-
     <p>Choose a rate of carbon change for the year 2070. Then select one of the models (warm, warmer and hot) and explore the big map below to see how changes would affect your part of the region.</p>
-
     <table class="scenarioTable">
       <tr>
         <td colspan=2 class="head">CHOOSE A SCENARIO</td>
         <td colspan=3 class="head">CHOOSE A MODEL</td>
       </tr>
-
       <tr>
         <td colspan=2>
           Global average for CO<sub>2</sub> in the atmosphere.
@@ -77,71 +73,56 @@
         <td>Warmer</td>
         <td>Hot</td>
       </tr>
-
       <tr class="{ rcp === 'RCP85' ? 'active' : ''}">
         <td class="scenario" on:click="set({ rcp: 'RCP85' })">
           <div class="circle">1</div>
-
           No change in current rate of CO<sub>2</sub> emissions.
         </td>
-
         <!-- CENTER CHART -->
         <td rowspan=3 class="chart">
-          <img class="{ rcp === 'RCP85' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-667db.png?c=1" alt="667 ppm">
-          <img class="{ rcp === 'RCP45' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-515db.png?c=1" alt="515 ppm">
-          <img class="{ rcp === 'RCP26' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-436db.png?c=1" alt="436 ppm">
+          <img class="{ rcp === 'RCP85' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-667db.png?c=3" alt="667 ppm">
+          <img class="{ rcp === 'RCP45' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-515db.png?c=3" alt="515 ppm">
+          <img class="{ rcp === 'RCP26' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-436db.png?c=3" alt="436 ppm">
         </td>
-
         <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1' })">
           <img src="http://stmedia.startribune.com/images/BCC936.png" alt="BCC667 model">
         </td>
-
         <td class="model-set warmer { model === 'CCSM4' ? 'active' : ''}" on:click="set({ model: 'CCSM4' })">
           <img src="http://stmedia.startribune.com/images/CSS936.png" alt="CSS667 model">
         </td>
-
         <td class="model-set hot { model === 'MIROC-ESM' ? 'active' : ''}" on:click="set({ model: 'MIROC-ESM' })">
           <img src="http://stmedia.startribune.com/images/Miroc936.png" alt="Miroc667 model">
         </td>
       </tr>
-
       <tr class="{ rcp === 'RCP45' ? 'active' : ''}" on:click="set({ rcp: 'RCP45' })">
         <td class="scenario">
           <div class="circle">2</div>Minor decrease in rate of CO<sub>2</sub> emissions.
         </td>
-
         <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1' })">
           <img src="http://stmedia.startribune.com/images/BCC538.png" alt="BBC515 model">
         </td>
-
         <td class="model-set warmer { model === 'CCSM4' ? 'active' : ''}" on:click="set({ model: 'CCSM4' })">
           <img src="http://stmedia.startribune.com/images/CSS538.png" alt="CCS515 model">
         </td>
-
         <td class="model-set hot { model === 'MIROC-ESM' ? 'active' : ''}" on:click="set({ model: 'MIROC-ESM' })">
           <img src="http://stmedia.startribune.com/images/Miroc538.png" alt="Miroc515 model">
         </td>
       </tr>
-
       <tr class="{ rcp === 'RCP26' ? 'active' : ''}" on:click="set({ rcp: 'RCP26' })">
         <td class="scenario">
           <div class="circle">3</div>Major decrease in rate of CO<sub>2</sub> emissions.
         </td>
-
         <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1' })">
           <img src="http://stmedia.startribune.com/images/BCC421.png" alt="BBC436model">
         </td>
-
         <td class="model-set warmer { model === 'CCSM4' ? 'active' : ''}" on:click="set({ model: 'CCSM4' })">
           <img src="http://stmedia.startribune.com/images/CSS421.png" alt="CSS436 model">
         </td>
-
         <td class="model-set hot { model === 'MIROC-ESM' ? 'active' : ''}" on:click="set({ model: 'MIROC-ESM' })">
           <img src="http://stmedia.startribune.com/images/Miroc421.png" alt="Miroc436 model">
         </td>
       </tr>
     </table>
-
     <div class="key">
       <div class="prairie">
         <div class="box">&nbsp;</div>Prairie
@@ -162,12 +143,16 @@
   </div>
   <div class="container-lg map">
     <Map tileSource="{ tileSource }" />
-
-    <div class="infoBox">
-      <p>Under the &ldquo;business as usual&rdquo; scenario, greenhouse gases continue to pour into the atmosphere at their current rate, pushing overall atmospheric CO2 levels to 936 ppm by 2070. If temperatures also rise at the pace of the most pessimistic of the three computer models, most of Minnesota’s northern birch and conifer forests would migrate northward out of the state entirely and much of the state will resemble Kansas today</p>
+    <div class="infoBox ppm436">
+      <p> If we make radical reductions: If the world’s rate of greenhouse gas emissions is reduced quickly and significantly, overall carbon dioxide (CO<sub>2</sub>) levels in the atmosphere will still rise slightly by 2070, reaching 436 ppm. Prairies would advance slightly and Minnesota would lose some or all of its boreal forest. But Lee Frelich, director of the U’s forest ecology center, notes that this scenario would be very difficult to attain because we are already at 408 ppm of CO<sub>2</sub> in the atmosphere.</p>
+    </div>
+    <div class="infoBox ppm515">
+      <p> If we make some changes: In this &dlquo;optimistic scenario,&drquo; humanity manages to significantly cut the rate of greenhouse gas emissions, and overall atmospheric CO<sub>2</sub> levels rise to just 515 ppm by 2070. Nonetheless, a prairie ecosystem would encroach on much of the state (depending on how quickly Earth warms), the conifer forest disappears, and much of the state’s eastern half would resemble the mix of grass and oak savanna that covers southwestern Minnesota today.</p>
+    </div>
+    <div class="infoBox ppm667">
+      <p>If we make no changes: Under the &dlquo;business-as-usual&drquo; scenario, greenhouse gases continue to pour into the atmosphere at their current rate, pushing overall atmospheric CO<sub>2</sub> levels to 667 ppm by 2070. If temperatures also rise at the pace of the most pessimistic of the three computer models, most of Minnesota’s northern birch and conifer forests would migrate northward out of the state entirely and much of the state will resemble Kansas today.</p>
     </div>
   </div>
-
   <div class="container-lg">
     <footer class="article-footer">
       <h1>Credits</h1>
@@ -181,33 +166,33 @@
     </footer>
   </div>
 </div>
-
 <script>
-  import Map from "./shared/_map.svelte.html";
+import Map from "./shared/_map.svelte.html";
 
-  export default {
-    components: {
-      Map
-    },
+export default {
+  components: {
+    Map
+  },
 
-    computed: {
-      tileSource({ model, rcp }) {
-        console.log(model, rcp);
-        return rcp === "current"
-          ? "shadowflare.201901-biomes_current"
-          : `shadowflare.201901-biomes_${model}_${rcp}`;
-      }
-    },
-
-    data() {
-      return {
-        // warm, warmer, and hot
-        models: ["BCC-CSM1-1", "CCSM4", "MIROC-ESM"],
-        model: "CCSM4",
-        // ppms: 436, 515, 667
-        rcps: ["RCP26", "RCP45", "RCP85"],
-        rcp: "RCP85"
-      };
+  computed: {
+    tileSource({ model, rcp }) {
+      console.log(model, rcp);
+      return rcp === "current" ?
+        "shadowflare.201901-biomes_current" :
+        `shadowflare.201901-biomes_${model}_${rcp}`;
     }
-  };
+  },
+
+  data() {
+    return {
+      // warm, warmer, and hot
+      models: ["BCC-CSM1-1", "CCSM4", "MIROC-ESM"],
+      model: "CCSM4",
+      // ppms: 436, 515, 667
+      rcps: ["RCP26", "RCP45", "RCP85"],
+      rcp: "RCP85"
+    };
+  }
+};
+
 </script>
