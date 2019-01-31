@@ -192,7 +192,6 @@
 
     computed: {
       tileSource({ model, rcp }) {
-        console.log(model, rcp);
         return rcp === "current"
           ? "shadowflare.201901-biomes_current"
           : `shadowflare.201901-biomes_${model}_${rcp}`;

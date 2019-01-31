@@ -39,7 +39,7 @@
           attributionControl: false,
           scrollZoom: true,
           minZoom: 4,
-          maxZoom: 10,
+          maxZoom: 8,
           center: this.get().twinCitiesCenter,
           zoom: 5,
           maxBounds: this.get().biomeExtent
@@ -51,23 +51,44 @@
         // Allow scroll zoom on full screen
         let fullscreenControl = new mapboxgl.FullscreenControl();
         this.__map.addControl(fullscreenControl);
-        window.document.addEventListener(
-          fullscreenControl._fullscreenchange,
-          () => {
-            if (fullscreenControl._fullscreen) {
-              this.__map.scrollZoom.enable();
-            } else {
-              this.__map.scrollZoom.disable();
-            }
-          }
-        );
+        // window.document.addEventListener(
+        //   fullscreenControl._fullscreenchange,
+        //   () => {
+        //     if (fullscreenControl._fullscreen) {
+        //       this.__map.scrollZoom.enable();
+        //     } else {
+        //       this.__map.scrollZoom.disable();
+        //     }
+        //   }
+        // );
 
-        // Fit to biome data
-        this.__map.fitBounds(this.get().biomeExtent);
+        // Focus on Minnesota
+        this.__map.fitBounds(this.get().minnesotaExtent, { padding: 10 });
 
         // When styles loaded
         this.__map.on("load", () => {
           this.mapBiome();
+
+          // Update some styles
+          let layers = this.__map.getStyle().layers;
+
+          // Change boundary styles
+          this.__map.setPaintProperty("admin-2-boundaries", "line-width", 5);
+          this.__map.setPaintProperty("admin-2-boundaries-bg", "line-width", 7);
+          this.__map.setPaintProperty("admin-3-4-boundaries", "line-width", 4);
+          this.__map.setPaintProperty("admin-3-4-boundaries-bg", "line-width", 6);
+
+          // Change label colors
+          for (let i = 0; i < layers.length; i++) {
+            if (layers[i].type === "symbol") {
+              this.__map.setPaintProperty(
+                layers[i].id,
+                "text-halo-color",
+                "#585858"
+              );
+              this.__map.setPaintProperty(layers[i].id, "text-color", "#FFFFFF");
+            }
+          }
         });
       },
 
@@ -105,12 +126,10 @@
       return {
         accessToken:
           "pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA",
-        mapStyle: "mapbox://styles/mapbox/dark-v9",
+        mapStyle: "mapbox://styles/mapbox/light-v9",
         twinCitiesCenter: [-93.191872, 44.960911],
-        biomeExtent: [
-          [-97.9584725504999767, 41.6248605845000057],
-          [-81.2668059505999736, 49.683193885600005]
-        ]
+        biomeExtent: [[-97.95847255, 41.624860584], [-81.26680595, 49.683193885]],
+        minnesotaExtent: [[-97.239209, 43.499356], [-89.491739, 49.384358]]
       };
     }
   };
