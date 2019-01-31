@@ -31,7 +31,7 @@
     <p>Toot wrote the software that calculated the predicted vegetation from the climate data. The maps have a surprising level of detail, with each square of the maps representing a square kilometer.</p>
     <div class="currentBiome">
       <h4>CURRENT BIOME ZONES</h4>
-      <img src="http://stmedia.startribune.com/images/climate-current300px.png" >
+      <img src="http://stmedia.startribune.com/images/climate-current300px.png" alt="Current Biomes" >
       <div class="key">
         <h4>ZONE KEY</h4>
         <div class="keyElement prairie">
@@ -62,7 +62,7 @@
   <div class="container-lg">
     <h3>EXPLORE THE DATA</h3>
 
-    <p>Start below to choose a rate of carbon change for the year 2070. Then select one of the models (warm, warmer and hot) and explore the big map below to see how changes would affect your part of the region.</p>
+    <p>Choose a rate of carbon change for the year 2070. Then select one of the models (warm, warmer and hot) and explore the big map below to see how changes would affect your part of the region.</p>
 
     <table class="scenarioTable">
       <tr>
@@ -88,21 +88,21 @@
 
         <!-- CENTER CHART -->
         <td rowspan=3 class="chart">
-          <img class="active" src="http://stmedia.startribune.com/images/BiomeChart-667db.png?c=1">
-          <img src="http://stmedia.startribune.com/images/BiomeChart-515db.png?c=1">
-          <img src="http://stmedia.startribune.com/images/BiomeChart-436db.png?c=1">
+          <img class="{ rcp === 'RCP85' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-667db.png?c=1" alt="667 ppm">
+          <img class="{ rcp === 'RCP45' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-515db.png?c=1" alt="515 ppm">
+          <img class="{ rcp === 'RCP26' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-436db.png?c=1" alt="436 ppm">
         </td>
 
         <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1' })">
-          <img src="http://stmedia.startribune.com/images/BCC936.png">
+          <img src="http://stmedia.startribune.com/images/BCC936.png" alt="BCC667 model">
         </td>
 
         <td class="model-set warmer { model === 'CCSM4' ? 'active' : ''}" on:click="set({ model: 'CCSM4' })">
-          <img src="http://stmedia.startribune.com/images/CSS936.png">
+          <img src="http://stmedia.startribune.com/images/CSS936.png" alt="CSS667 model">
         </td>
 
         <td class="model-set hot { model === 'MIROC-ESM' ? 'active' : ''}" on:click="set({ model: 'MIROC-ESM' })">
-          <img src="http://stmedia.startribune.com/images/Miroc936.png">
+          <img src="http://stmedia.startribune.com/images/Miroc936.png" alt="Miroc667 model">
         </td>
       </tr>
 
@@ -112,15 +112,15 @@
         </td>
 
         <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1' })">
-          <img src="http://stmedia.startribune.com/images/BCC538.png">
+          <img src="http://stmedia.startribune.com/images/BCC538.png" alt="BBC515 model">
         </td>
 
         <td class="model-set warmer { model === 'CCSM4' ? 'active' : ''}" on:click="set({ model: 'CCSM4' })">
-          <img src="http://stmedia.startribune.com/images/CSS538.png">
+          <img src="http://stmedia.startribune.com/images/CSS538.png" alt="CCS515 model">
         </td>
 
         <td class="model-set hot { model === 'MIROC-ESM' ? 'active' : ''}" on:click="set({ model: 'MIROC-ESM' })">
-          <img src="http://stmedia.startribune.com/images/Miroc538.png">
+          <img src="http://stmedia.startribune.com/images/Miroc538.png" alt="Miroc515 model">
         </td>
       </tr>
 
@@ -130,15 +130,15 @@
         </td>
 
         <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1' })">
-          <img src="http://stmedia.startribune.com/images/BCC421.png">
+          <img src="http://stmedia.startribune.com/images/BCC421.png" alt="BBC436model">
         </td>
 
         <td class="model-set warmer { model === 'CCSM4' ? 'active' : ''}" on:click="set({ model: 'CCSM4' })">
-          <img src="http://stmedia.startribune.com/images/CSS421.png">
+          <img src="http://stmedia.startribune.com/images/CSS421.png" alt="CSS436 model">
         </td>
 
         <td class="model-set hot { model === 'MIROC-ESM' ? 'active' : ''}" on:click="set({ model: 'MIROC-ESM' })">
-          <img src="http://stmedia.startribune.com/images/Miroc421.png">
+          <img src="http://stmedia.startribune.com/images/Miroc421.png" alt="Miroc436 model">
         </td>
       </tr>
     </table>
