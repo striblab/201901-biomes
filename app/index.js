@@ -51,8 +51,26 @@ utils.environmentNoting();
 
 
 import Content from '../templates/_index-content.svelte.html';
-const app = new Content({
-  target: document.querySelector('.article-lcd-body-content'),
-  data: {
-  }
+
+// ...
+$(document).ready(() => {
+  // Hack to get share back
+  let $share = $('.share-placeholder').size()
+    ? $('.share-placeholder')
+      .children()
+      .detach()
+    : undefined;
+  let attachShare = !$share
+    ? undefined
+    : () => {
+      $('.share-placeholder').append($share);
+    };
+
+  // Main component
+  const app = new Content({
+    target: document.querySelector('.article-lcd-body-content'),
+    data: {
+      attachShare
+    }
+  });
 });
