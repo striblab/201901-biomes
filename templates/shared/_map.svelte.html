@@ -18,7 +18,7 @@
       if (changed.tileSource && previous && previous.tileSource) {
         this.mapBiome();
       }
-      if (changed.infoBox) {
+      if (changed.infoBox || changed.infoTitle) {
         this.infoBox();
       }
     },
@@ -153,7 +153,8 @@
           controlEl.classList.add("map-info-box-content");
           controlEl.innerHTML = `
               <div class="mapboxgl-ctrl-icon">
-                <p>${this.get().infoBox}</p>
+               <p class="boxTitle">${this.get().infoTitle}</p>
+               <p>${this.get().infoBox}</p>
               </div>
             `;
         } else {
