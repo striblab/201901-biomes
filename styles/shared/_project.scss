@@ -171,24 +171,3 @@ table.scenarioTable {
     opacity: 1;
   }
 }
-
-// MAP AND INFO BOX
-.container-lg.map {
-  position: relative;
-}
-
-.infoBox {
-  display: none;
-  border-radius: 10px;
-  position: absolute;
-  width: 320px;
-  background-color: #ccc;
-  padding: 1em;
-  top: 50px;
-  right: 30px;
-}
-
-figure.map-figure {
-  display: block;
-  top: 0;
-}
