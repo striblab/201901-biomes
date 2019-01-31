@@ -6,7 +6,6 @@
   </div>
 </figure>
 
-
 <script>
   /* global mapboxgl */
 
@@ -16,9 +15,11 @@
     },
 
     onupdate({ changed, current, previous }) {
-      console.log({ changed, current, previous });
       if (changed.tileSource && previous && previous.tileSource) {
         this.mapBiome();
+      }
+      if (changed.infoBox) {
+        this.infoBox();
       }
     },
 
@@ -67,7 +68,11 @@
 
         // When styles loaded
         this.__map.on("load", () => {
+          // Add biome tiles
           this.mapBiome();
+
+          // Update infobox
+          this.infoBox();
 
           // Update some styles
           let layers = this.__map.getStyle().layers;
@@ -118,6 +123,42 @@
           let s = this.__map.getSource("biome-source");
           s._options.url = `mapbox://${biome}`;
           s.load();
+        }
+      },
+
+      // Update info box
+      infoBox() {
+        let controlEl = document.body.querySelector(".map-info-box");
+        let mapboxControlTopRight = this.refs.map.querySelector(
+          ".mapboxgl-ctrl-top-right"
+        );
+
+        // Check for map rendered
+        if (!mapboxControlTopRight) {
+          return;
+        }
+
+        // Check for control
+        if (!controlEl) {
+          let mapboxControlTopRight = this.refs.map.querySelector(
+            ".mapboxgl-ctrl-top-right"
+          );
+          controlEl = document.createElement("div");
+          controlEl.className +=
+            " mapboxgl-ctrl mapboxgl-ctrl-group map-info-box";
+          mapboxControlTopRight.appendChild(controlEl);
+        }
+
+        if (this.get().infoBox) {
+          controlEl.classList.add("map-info-box-content");
+          controlEl.innerHTML = `
+              <div class="mapboxgl-ctrl-icon">
+                <p>${this.get().infoBox}</p>
+              </div>
+            `;
+        } else {
+          controlEl.classList.remove("map-info-box-content");
+          controlEl.innerHTML = "";
         }
       }
     },

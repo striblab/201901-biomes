@@ -162,8 +162,11 @@
     </div>
   </div>
 
-  <div class="container-lg map">
-    <Map tileSource="{ tileSource }" infoBox="{ infoBox[rcp][model] }" />
+  <div class="container-lg">
+    <Map
+      tileSource="{ tileSource }"
+      infoBox="{ infoBox[rcp] && infoBox[rcp][model] ? infoBox[rcp][model] : undefined }"
+    />
   </div>
 
   <div class="container-md">
