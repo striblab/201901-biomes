@@ -57,41 +57,18 @@
     <p>The climate is likely to change too fast for plant species to migrate to their new locations, Toot said. &ldquo;We’ll probably need to use assisted migration&rdquo; to help plants move to the new locations, successfully replacing the plants and trees that can’t survive the new climate.</p>
     <p>The project is part of an exhibit at the U’s Bell Museum in St. Paul, Weather to Climate: Our Changing World, which runs Feb. 2 to April 28.</p>
   </div>
-  <div class="container-copy bottom-space-extra" style="display:none">
-    <img style="float:left;" src="../assets/images/CO2ppm936.png">
-    <form class="map-controls" style="float:right;display:block;">
-      <label for="model-select">Models</label>
-      <div class="radio-list">
-        {#each models as m, mi}
-        <div class="radio">
-          <input bind:group="model" value="{ m }" type="radio" id="model-{ m }" name="model-select">
-          <label for="model-select">{ m }</label>
-          <div class="mapButton"><img src="../assets/images/model-{ m }.png"></div>
-          </div>
-          {/each}
-        </div>
-        <label for="rcp-select">Carbon (RCP)</label>
-        <div class="radio-list">
-          {#each rcps as r, ri}
-          <div class="radio">
-            <input bind:group="rcp" value="{ r }" type="radio" id="model-{ r }" name="rcp-select">
-            <label for="rcp-select">{ r }</label>
-          </div>
-          {/each}
-        </div>
-    </form>
-  </div><br clear=all>
+
   <div class="container-lg">
     <h3>EXPLORE THE DATA</h3>
-    <p>Start below to choose a rate of carbon change for the year 2070. Then select one of the models (warm, warmer and hot) and explore the big map below to see how changes would affect your part of the region.
-</p>
+
+    <p>Start below to choose a rate of carbon change for the year 2070. Then select one of the models (warm, warmer and hot) and explore the big map below to see how changes would affect your part of the region.</p>
+
     <table class="scenarioTable">
       <tr>
-        <td colspan=2 class="head">CHOOSE A SCENARIO
-        </td>
-        <td colspan=3 class="head">CHOOSE A MODEL
-        </td>
+        <td colspan=2 class="head">CHOOSE A SCENARIO</td>
+        <td colspan=3 class="head">CHOOSE A MODEL</td>
       </tr>
+
       <tr>
         <td colspan=2>
           Global average for CO<sub>2</sub> in the atmosphere.
@@ -100,38 +77,71 @@
         <td>Warmer</td>
         <td>Hot</td>
       </tr>
-      <tr class="active">
-        <td class="scenario active">
-          <div class="circle">1</div>No change in current rate of CO<sub>2</sub> emissions.
+
+      <tr class="{ rcp === 'RCP85' ? 'active' : ''}">
+        <td class="scenario" on:click="set({ rcp: 'RCP85' })">
+          <div class="circle">1</div>
+
+          No change in current rate of CO<sub>2</sub> emissions.
         </td>
 
         <!-- CENTER CHART -->
-        <td rowspan=3 class="chart"><img class="active" src="http://stmedia.startribune.com/images/BiomeChart-667db.png?c=1">
-        <img src="http://stmedia.startribune.com/images/BiomeChart-515db.png?c=1">
-        <img src="http://stmedia.startribune.com/images/BiomeChart-436db.png?c=1"></td>
+        <td rowspan=3 class="chart">
+          <img class="active" src="http://stmedia.startribune.com/images/BiomeChart-667db.png?c=1">
+          <img src="http://stmedia.startribune.com/images/BiomeChart-515db.png?c=1">
+          <img src="http://stmedia.startribune.com/images/BiomeChart-436db.png?c=1">
+        </td>
 
+        <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1' })">
+          <img src="http://stmedia.startribune.com/images/BCC936.png">
+        </td>
 
-        <td class="warm active"><img src="http://stmedia.startribune.com/images/BCC936.png"></td>
-        <td class="warmer active"><img src="http://stmedia.startribune.com/images/CSS936.png"></td>
-        <td class="hot active"><img src="http://stmedia.startribune.com/images/Miroc936.png"></td>
+        <td class="model-set warmer { model === 'CCSM4' ? 'active' : ''}" on:click="set({ model: 'CCSM4' })">
+          <img src="http://stmedia.startribune.com/images/CSS936.png">
+        </td>
+
+        <td class="model-set hot { model === 'MIROC-ESM' ? 'active' : ''}" on:click="set({ model: 'MIROC-ESM' })">
+          <img src="http://stmedia.startribune.com/images/Miroc936.png">
+        </td>
       </tr>
-      <tr>
+
+      <tr class="{ rcp === 'RCP45' ? 'active' : ''}" on:click="set({ rcp: 'RCP45' })">
         <td class="scenario">
           <div class="circle">2</div>Minor decrease in rate of CO<sub>2</sub> emissions.
         </td>
-        <td class="warm"><img src="http://stmedia.startribune.com/images/BCC538.png"></td>
-        <td class="warmer"><img src="http://stmedia.startribune.com/images/CSS538.png"></td>
-        <td class="hot"><img src="http://stmedia.startribune.com/images/Miroc538.png"></td>
+
+        <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1' })">
+          <img src="http://stmedia.startribune.com/images/BCC538.png">
+        </td>
+
+        <td class="model-set warmer { model === 'CCSM4' ? 'active' : ''}" on:click="set({ model: 'CCSM4' })">
+          <img src="http://stmedia.startribune.com/images/CSS538.png">
+        </td>
+
+        <td class="model-set hot { model === 'MIROC-ESM' ? 'active' : ''}" on:click="set({ model: 'MIROC-ESM' })">
+          <img src="http://stmedia.startribune.com/images/Miroc538.png">
+        </td>
       </tr>
-      <tr>
+
+      <tr class="{ rcp === 'RCP26' ? 'active' : ''}" on:click="set({ rcp: 'RCP26' })">
         <td class="scenario">
           <div class="circle">3</div>Major decrease in rate of CO<sub>2</sub> emissions.
         </td>
-        <td class="warm"><img src="http://stmedia.startribune.com/images/BCC421.png"></td>
-        <td class="warmer"><img src="http://stmedia.startribune.com/images/CSS421.png"></td>
-        <td class="hot"><img src="http://stmedia.startribune.com/images/Miroc421.png"></td>
+
+        <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1' })">
+          <img src="http://stmedia.startribune.com/images/BCC421.png">
+        </td>
+
+        <td class="model-set warmer { model === 'CCSM4' ? 'active' : ''}" on:click="set({ model: 'CCSM4' })">
+          <img src="http://stmedia.startribune.com/images/CSS421.png">
+        </td>
+
+        <td class="model-set hot { model === 'MIROC-ESM' ? 'active' : ''}" on:click="set({ model: 'MIROC-ESM' })">
+          <img src="http://stmedia.startribune.com/images/Miroc421.png">
+        </td>
       </tr>
     </table>
+
     <div class="key">
       <div class="prairie">
         <div class="box">&nbsp;</div>Prairie
@@ -152,10 +162,12 @@
   </div>
   <div class="container-lg map">
     <Map tileSource="{ tileSource }" />
+
     <div class="infoBox">
       <p>Under the &ldquo;business as usual&rdquo; scenario, greenhouse gases continue to pour into the atmosphere at their current rate, pushing overall atmospheric CO2 levels to 936 ppm by 2070. If temperatures also rise at the pace of the most pessimistic of the three computer models, most of Minnesota’s northern birch and conifer forests would migrate northward out of the state entirely and much of the state will resemble Kansas today</p>
     </div>
   </div>
+
   <div class="container-lg">
     <footer class="article-footer">
       <h1>Credits</h1>
@@ -169,31 +181,33 @@
     </footer>
   </div>
 </div>
+
 <script>
-import Map from "./shared/_map.svelte.html";
+  import Map from "./shared/_map.svelte.html";
 
-export default {
-  components: {
-    Map
-  },
+  export default {
+    components: {
+      Map
+    },
 
-  computed: {
-    tileSource({ model, rcp }) {
-      console.log(model, rcp);
-      return rcp === "current" ?
-        "shadowflare.201901-biomes_current" :
-        `shadowflare.201901-biomes_${model}_${rcp}`;
+    computed: {
+      tileSource({ model, rcp }) {
+        console.log(model, rcp);
+        return rcp === "current"
+          ? "shadowflare.201901-biomes_current"
+          : `shadowflare.201901-biomes_${model}_${rcp}`;
+      }
+    },
+
+    data() {
+      return {
+        // warm, warmer, and hot
+        models: ["BCC-CSM1-1", "CCSM4", "MIROC-ESM"],
+        model: "CCSM4",
+        // ppms: 436, 515, 667
+        rcps: ["RCP26", "RCP45", "RCP85"],
+        rcp: "RCP85"
+      };
     }
-  },
-
-  data() {
-    return {
-      models: ["BCC-CSM1-1", "CCSM4", "MIROC-ESM"],
-      model: "BCC-CSM1-1",
-      rcps: ["current", "RCP26", "RCP45", "RCP85"],
-      rcp: "current"
-    };
-  }
-};
-
+  };
 </script>

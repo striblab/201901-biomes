@@ -22,7 +22,7 @@
 
   .key {
     float: none;
-    margin-top: .5em;
+    margin-top: 0.5em;
     display: block;
     width: 300px;
 
@@ -31,13 +31,13 @@
 
       .box {
         width: 2em;
-        height: .75em;
-        height: .75em;
+        height: 0.75em;
+        height: 0.75em;
       }
     }
 
     div {
-      margin-right: .5em;
+      margin-right: 0.5em;
     }
   }
 }
@@ -48,18 +48,17 @@
 
   div {
     display: inline-block;
-    margin-right: .5em;
+    margin-right: 0.5em;
   }
 
   @include font-styles("benton-sans");
-  font-size:.65em;
+  font-size: 0.65em;
 
   .box {
-
     width: 1em;
-    height: .75em;
+    height: 0.75em;
     display: inline-block;
-    margin-right: .5em;
+    margin-right: 0.5em;
     line-height: 1;
   }
 
@@ -94,8 +93,8 @@
 table.scenarioTable {
   margin-top: 50px;
   @include font-styles("benton-sans");
-  font-size: .90em;
-  letter-spacing: -.5;
+  font-size: 0.9em;
+  letter-spacing: -0.5;
 
   td {
     border: none;
@@ -112,6 +111,8 @@ table.scenarioTable {
     padding-top: 1em;
     width: 185px;
     color: #ccc;
+    cursor: pointer;
+    transition: color 0.333s;
 
     .circle {
       display: inline;
@@ -127,14 +128,15 @@ table.scenarioTable {
       font-size: 18px;
       font-weight: bold;
       margin: 0 10px 40px 0;
+      transition: background-color 0.333s;
     }
+  }
 
-    &.active {
-      color: #444;
+  .active td.scenario {
+    color: #444;
 
-      .circle {
-        background: red;
-      }
+    .circle {
+      background: red;
     }
   }
 
@@ -148,17 +150,24 @@ table.scenarioTable {
     }
   }
 
-  td.warm,
-  td.warmer,
-  td.hot {
+  .model-set {
     width: 110px;
     height: 102px;
     margin: 10px 0 0 10px;
-    opacity: .2;
+    opacity: 0.2;
+    transition: opacity 0.333s;
 
-    &.active {
-      opacity: 1;
+    img {
+      cursor: pointer;
     }
+
+    &.active img {
+      outline: 2px solid red;
+    }
+  }
+
+  .active .model-set {
+    opacity: 1;
   }
 }
 
