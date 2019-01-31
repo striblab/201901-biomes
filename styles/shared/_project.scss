@@ -138,7 +138,15 @@ table.scenarioTable {
     }
   }
 
-  td.bigImage {}
+  td.chart {
+    img {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
 
   td.warm,
   td.warmer,
