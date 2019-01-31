@@ -1,7 +1,8 @@
 <div class="strib-styles ssa ssb ssc">
   <div class="container-md">
     <div class="hero">
-      <h1>Modelling our future forests</h1>
+
+      <h1>CLIMATE CHANGE THREATENS OUR FORESTS</h1>
 
       <p class="lead container-sm">Here's a lead-in paragraph to let you know what about to happen.</p>
 
@@ -58,18 +59,14 @@
     <p>The climate is likely to change too fast for plant species to migrate to their new locations, Toot said. &ldquo;We’ll probably need to use assisted migration&rdquo; to help plants move to the new locations, successfully replacing the plants and trees that can’t survive the new climate.</p>
     <p>The project is part of an exhibit at the U’s Bell Museum in St. Paul, Weather to Climate: Our Changing World, which runs Feb. 2 to April 28.</p>
   </div>
-
   <div class="container-lg">
     <h3>EXPLORE THE DATA</h3>
-
-    <p>Choose a rate of carbon change for the year 2070. Then select one of the models (warm, warmer and hot) and explore the big map below to see how changes would affect your part of the region.</p>
-
+    <p>Choose a rate of carbon change scenario for the year 2070. Then select one of the models (warm, warmer and hot) and explore the big map below to see how changes would affect your part of the region.</p>
     <table class="scenarioTable">
       <tr>
         <td colspan=2 class="head">CHOOSE A SCENARIO</td>
         <td colspan=3 class="head">CHOOSE A MODEL</td>
       </tr>
-
       <tr>
         <td colspan=2>
           Global average for CO<sub>2</sub> in the atmosphere.
@@ -78,20 +75,18 @@
         <td>Warmer</td>
         <td>Hot</td>
       </tr>
-
       <tr class="{ rcp === 'RCP85' ? 'active' : ''}">
-        <td class="scenario" on:click="set({ rcp: 'RCP85' })">
+        <td class="scenario top-padding" on:click="set({ rcp: 'RCP85' })">
           <div class="circle">1</div>
-
           No change in current rate of CO<sub>2</sub> emissions.
         </td>
-
         <!-- CENTER CHART -->
         <td rowspan=3 class="chart">
-          <img class="{ rcp === 'RCP85' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-667db.png?c=1" alt="667 ppm">
-          <img class="{ rcp === 'RCP45' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-515db.png?c=1" alt="515 ppm">
-          <img class="{ rcp === 'RCP26' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-436db.png?c=1" alt="436 ppm">
+          <img class="{ rcp === 'RCP85' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-667db.png?c=3" alt="667 ppm">
+          <img class="{ rcp === 'RCP45' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-515db.png?c=3" alt="515 ppm">
+          <img class="{ rcp === 'RCP26' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-436db.png?c=3" alt="436 ppm">
         </td>
+
 
         <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1', rcp: 'RCP85' })">
           <img src="http://stmedia.startribune.com/images/BCC936.png" alt="BCC667 model">
@@ -102,14 +97,15 @@
         </td>
 
         <td class="model-set hot { model === 'MIROC-ESM' ? 'active' : ''}" on:click="set({ model: 'MIROC-ESM', rcp: 'RCP85' })">
+
           <img src="http://stmedia.startribune.com/images/Miroc936.png" alt="Miroc667 model">
         </td>
       </tr>
-
       <tr class="{ rcp === 'RCP45' ? 'active' : ''}" on:click="set({ rcp: 'RCP45' })">
         <td class="scenario">
           <div class="circle">2</div>Minor decrease in rate of CO<sub>2</sub> emissions.
         </td>
+
 
         <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1', rcp: 'RCP45' })">
           <img src="http://stmedia.startribune.com/images/BCC538.png" alt="BBC515 model">
@@ -120,14 +116,15 @@
         </td>
 
         <td class="model-set hot { model === 'MIROC-ESM' ? 'active' : ''}" on:click="set({ model: 'MIROC-ESM', rcp: 'RCP45' })">
+
           <img src="http://stmedia.startribune.com/images/Miroc538.png" alt="Miroc515 model">
         </td>
       </tr>
-
       <tr class="{ rcp === 'RCP26' ? 'active' : ''}" on:click="set({ rcp: 'RCP26' })">
         <td class="scenario">
           <div class="circle">3</div>Major decrease in rate of CO<sub>2</sub> emissions.
         </td>
+
 
         <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1', rcp: 'RCP26' })">
           <img src="http://stmedia.startribune.com/images/BCC421.png" alt="BBC436model">
@@ -142,7 +139,6 @@
         </td>
       </tr>
     </table>
-
     <div class="key">
       <div class="prairie">
         <div class="box">&nbsp;</div>Prairie
@@ -162,6 +158,7 @@
     </div>
   </div>
 
+
   <div class="container-lg">
     <Map
       tileSource="{ tileSource }"
@@ -170,6 +167,7 @@
   </div>
 
   <div class="container-md">
+
     <footer class="article-footer">
       <h1>Credits</h1>
 
@@ -184,8 +182,8 @@
     </footer>
   </div>
 </div>
-
 <script>
+
   import Map from "./shared/_map.svelte.html";
 
   export default {
@@ -223,6 +221,8 @@
           }
         }
       };
+
     }
-  };
+};
+
 </script>
