@@ -87,9 +87,9 @@
 
         <!-- CENTER CHART -->
         <td rowspan=3 class="chart">
-          <img class="active" src="http://stmedia.startribune.com/images/BiomeChart-667db.png?c=1">
-          <img src="http://stmedia.startribune.com/images/BiomeChart-515db.png?c=1">
-          <img src="http://stmedia.startribune.com/images/BiomeChart-436db.png?c=1">
+          <img class="{ rcp === 'RCP85' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-667db.png?c=1">
+          <img class="{ rcp === 'RCP45' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-515db.png?c=1">
+          <img class="{ rcp === 'RCP26' ? 'active' : ''}" src="http://stmedia.startribune.com/images/BiomeChart-436db.png?c=1">
         </td>
 
         <td class="model-set warm { model === 'BCC-CSM1-1' ? 'active' : ''}" on:click="set({ model: 'BCC-CSM1-1' })">
