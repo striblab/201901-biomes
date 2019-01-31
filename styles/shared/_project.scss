@@ -108,11 +108,12 @@ table.scenarioTable {
   }
 
   td.scenario {
-    padding-top: 1em;
+    padding-top: 0;
     width: 185px;
     color: #ccc;
     cursor: pointer;
     transition: color 0.333s;
+    &.top-padding{padding-top:1em;}
 
     .circle {
       display: inline;
