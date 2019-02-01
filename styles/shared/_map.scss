@@ -65,30 +65,34 @@
   margin-bottom: 5em;
 }
 
+.mapboxgl-ctrl-bottom-right {
+  width: 100%;
+}
+
 .mapboxgl-ctrl-group.map-info-box {
   display: block;
-  width: 20em;
+  width: 90%;
   right: 0;
+  bottom: 0;
   position: absolute;
+
+  @include media-breakpoint-up("md") {
+    width: 20em;
+  }
 
   p {
     @include font-styles("benton-sans");
 
     margin-bottom: 0;
     font-size: 1.1em;
-
-
   }
-
-
 
   .mapboxgl-ctrl-icon {
     padding: 1em;
 
-      h4 {
-        font-size:1.4em;
-        display: inline-block;
-      }
-    
+    h4 {
+      font-size: 1.4em;
+      display: inline-block;
+    }
   }
 }
