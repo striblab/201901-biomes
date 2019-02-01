@@ -67,6 +67,10 @@
 
 .mapboxgl-ctrl-bottom-right {
   width: 100%;
+
+  @include media-breakpoint-up("md") {
+    top: 4em;
+  }
 }
 
 .mapboxgl-ctrl-group.map-info-box {
@@ -78,6 +82,9 @@
 
   @include media-breakpoint-up("md") {
     width: 20em;
+    right: 0;
+    top: 0;
+    bottom: auto;
   }
 
   p {
