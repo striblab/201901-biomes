@@ -1,13 +1,23 @@
 /**
  * Project specific styling.
  */
+
+@media (min-width: 1200px) {
+  font-size: 16px;
+}
+
+@media (min-width: 992px) {
+  font-size: 16px;
+}
+
+
 .hero {
   max-width: 800px;
   margin: 0 auto;
 
   .heroTopper {
     width: 740px;
-    display:flex;
+    display: flex;
     margin: 0 auto 3em;
 
     .heroText {
@@ -15,6 +25,7 @@
       margin: 0 auto 10px auto;
       @include font-styles("whitman-display");
       font-size: 1.4em;
+      line-height: 1em;
     }
 
     .left {
@@ -33,9 +44,9 @@
 
     .ppmText {
       position: absolute;
-      top: 100px;
+      top: 90px;
       right: 75px;
-      font-size: .65em;
+      font-size: .7em;
       text-align: left;
 
     }
@@ -45,7 +56,7 @@
       width: 130px;
       bottom: 80px;
       right: 0;
-      font-size: .65em;
+      font-size: .7em;
       text-align: left;
     }
 
@@ -60,7 +71,7 @@
   }
 
   .lead {
-    max-width: 700px;
+    max-width: 550px;
   }
 }
 
@@ -99,6 +110,7 @@
 // LOWER KEY
 .key {
   float: right;
+  margin: 1em 0 .5em;
 
   div {
     display: inline-block;
@@ -106,7 +118,7 @@
   }
 
   @include font-styles("benton-sans");
-  font-size: 0.65em;
+  font-size: 0.7em;
 
   .box {
     width: 1em;
@@ -147,15 +159,20 @@ h3 {
   @include font-styles("benton-sans");
   font-weight: bold;
   font-size: 1.5em;
-  margin: 3.5em 0 0 0;
+  margin: 3.5em 0 .25em 0;
+}
+
+.scenarioText {
+  max-width: 730px;
+  @include font-styles("benton-sans");
 }
 
 table.scenarioTable {
-  margin-top: 50px;
+  margin-top: 30px;
   @include font-styles("benton-sans");
   font-size: 0.9em;
   letter-spacing: -0.5;
-
+ .currentModel{font-size:.8em;font-weight:normal;}
   td {
     border: none;
     padding: 0;
@@ -233,4 +250,8 @@ table.scenarioTable {
   .active .model-set {
     opacity: 1;
   }
+}
+
+.article-footer {
+  margin-bottom: 8em;
 }
