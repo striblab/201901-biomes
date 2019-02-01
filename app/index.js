@@ -49,7 +49,6 @@ utils.environmentNoting();
 //   }
 // });
 
-
 import Content from '../templates/_index-content.svelte.html';
 
 // ...
