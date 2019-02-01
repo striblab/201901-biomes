@@ -185,6 +185,13 @@
       Map
     },
 
+    oncreate() {
+      // Hack back in sharing
+      if (this.get().attachShare) {
+        this.get().attachShare();
+      }
+    },
+
     computed: {
       tileSource({ model, rcp }) {
         return rcp === "current"
