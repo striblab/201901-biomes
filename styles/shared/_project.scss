@@ -6,6 +6,7 @@
   font-size: 16px;
 }
 
+
 @media (min-width: 992px) {
   font-size: 16px;
 }
@@ -14,6 +15,12 @@
 .hero {
   max-width: 800px;
   margin: 0 auto;
+
+  @media (max-width: 750px) {
+    h1 {
+      font-size: 3.3em;
+    }
+  }
 
   .heroTopper {
     width: 740px;
@@ -72,6 +79,12 @@
 
   .lead {
     max-width: 550px;
+
+    @media (max-width: 750px) {
+
+      font-size: 1.7em;
+
+    }
   }
 }
 
@@ -84,6 +97,11 @@
   float: right;
   display: block;
   margin: 0 -10em 2em 3em;
+
+  @media (max-width: 450px) {
+    float: none;
+    margin: 2em auto 2em auto;
+  }
 
   .key {
     float: none;
@@ -172,7 +190,12 @@ table.scenarioTable {
   @include font-styles("benton-sans");
   font-size: 0.9em;
   letter-spacing: -0.5;
- .currentModel{font-size:.8em;font-weight:normal;}
+
+  .currentModel {
+    font-size: .8em;
+    font-weight: normal;
+  }
+
   td {
     border: none;
     padding: 0;
@@ -190,6 +213,12 @@ table.scenarioTable {
     color: #ccc;
     cursor: pointer;
     transition: color 0.333s;
+
+    @media (max-width: 600px) {
+      width: 90px;
+      font-size: .85em;
+    }
+
 
     &.top-padding {
       padding-top: 1em;
@@ -210,6 +239,13 @@ table.scenarioTable {
       font-weight: bold;
       margin: 0 10px 40px 0;
       transition: background-color 0.333s;
+
+      @media (max-width: 600px) {
+        width: 22px;
+        height: 22px;
+        padding: 0px;
+        margin: 0 5px 2px 0;
+      }
     }
   }
 
@@ -229,6 +265,13 @@ table.scenarioTable {
         display: block;
       }
     }
+
+    @media (max-width: 700px) {
+      img.active {
+        display: none;
+
+      }
+    }
   }
 
   .model-set {
@@ -237,6 +280,10 @@ table.scenarioTable {
     margin: 10px 0 0 10px;
     opacity: 0.2;
     transition: opacity 0.333s;
+
+    @media (max-width: 700px) {
+      width: 40px;
+    }
 
     img {
       cursor: pointer;
@@ -254,4 +301,10 @@ table.scenarioTable {
 
 .article-footer {
   margin-bottom: 8em;
+}
+.desktop{display:inline;}
+@media (max-width: 750px) {
+  .desktop {
+    display: none;
+  }
 }

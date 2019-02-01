@@ -34,13 +34,10 @@
         </div>
       </div>
       <div class="container-copy bottom-space-extra">
-        <p>For years, Minnesota climate and forest scientists have suspected that the state&rsquo;s tree cover would creep northward as Earth&rsquo;s climate warmed, and the prairies that predominate in the southwest of the state would take over what was previously a mix of fields, deciduous woods and pine forests.</p>
+        <p><span class="drop-cap">F</span>or years, Minnesota climate and forest scientists have suspected that the state&rsquo;s tree cover would creep northward as Earth&rsquo;s climate warmed, and the prairies that predominate in the southwest of the state would take over what was previously a mix of fields, deciduous woods and pine forests.</p>
         <p>It wouldn&rsquo;t happen overnight, but the shift is already underway — prompting concern that Minnesota&rsquo;s signature forests might be lost altogether. </p>
         <p> The technical tools to predict these decadeslong changes with any specificity were always tantalizingly out of reach.</p>
         <p>Until now. </p>
-        <p>Scientists developed worldwide climate projection computer models that were then adapted to predict local changes to Minnesota&rsquo;s climate and landscape.</p>
-        <p>Those findings were presented at a series of hearings at the Legislature, with key testimony by Lee Frelich, director of the University of Minnesota&rsquo;s Center for Forest Ecology and his associates. The core of their presentation was a set of maps of Minnesota and the Great Lakes region showing the current forest and prairie zones and how they will change and migrate to the northeast as the climate warms and precipitation changes.</p>
-        <p>According to Frelich, a key component of climate change is the increased amount of carbon dioxide and other greenhouse gases in the atmosphere and the way they retain more and more heat near Earth&rsquo;s surface. Humans have introduced vast amounts of CO<sub>2</sub> into the atmosphere over the last 150 years, mainly through the burning of fossil fuels.</p>
         <div class="currentBiome">
           <h4>CURRENT BIOME ZONES</h4>
           <img src="http://stmedia.startribune.com/images/climate-current300px.png" alt="Current Biomes" >
@@ -63,6 +60,9 @@
             </div>
           </div>
         </div>
+        <p>Scientists developed worldwide climate projection computer models that were then adapted to predict local changes to Minnesota&rsquo;s climate and landscape.</p>
+        <p>Those findings were presented at a series of hearings at the Legislature, with key testimony by Lee Frelich, director of the University of Minnesota&rsquo;s Center for Forest Ecology and his associates. The core of their presentation was a set of maps of Minnesota and the Great Lakes region showing the current forest and prairie zones and how they will change and migrate to the northeast as the climate warms and precipitation changes.</p>
+        <p>According to Frelich, a key component of climate change is the increased amount of carbon dioxide and other greenhouse gases in the atmosphere and the way they retain more and more heat near Earth&rsquo;s surface. Humans have introduced vast amounts of CO<sub>2</sub> into the atmosphere over the last 150 years, mainly through the burning of fossil fuels.</p>
         <p>Because trees can be sensitive to average temperatures and rainfall, and because Minnesota contains the edges of several biomes where tree species are especially susceptible to change, Minnesota&rsquo;s forest cover could change rapidly in coming decades. Oaks that are common in western and southwestern Minnesota are likely to migrate north, while the pines of the boreal forest in northeastern Minnesota are likely to recede north and perhaps disappear from the state entirely.</p>
         <p>The result of their latest research is nine maps — three CO<sub>2</sub> scenarios, each with three different temperature predictions — reflecting thousands of variables that have been painstakingly entered into the computer models.</p>
         <p>Ryan Toot, a graduate student in the U&rsquo;s Natural Resources Science and Management program, said the researchers ran multiple climate models and multiple emission scenarios because &ldquo;the future is uncertain,&rdquo; even with most sophisticated forecasting tools. From roughly 40 computer models available to scientists today, U researchers chose three, known as BCC, CCSM4 and Miroc. They capture the range of uncertainty for each of the concentrations of greenhouse gases by choosing cool, average and moderate potential for the region.</p>
@@ -80,11 +80,12 @@
         <table class="scenarioTable">
           <tr>
             <td colspan=2 class="head">CHOOSE A SCENARIO</td>
-            <td colspan=3 class="head">CHOOSE A MODEL&nbsp;&nbsp; <a class="currentModel { rcp === 'current' ?  'active' : '' }" href="#current" on:click="proxySet({ model: 'none', rcp: 'current' }, event)">See current biomes</a></td>
+            <td colspan=3 class="head">CHOOSE A MODEL&nbsp;&nbsp;<div class="desktop"><a class="currentModel { rcp === 'current' ?  'active' : '' }" href="#current" on:click="proxySet({ model: 'none', rcp: 'current' }, event)">See current biomes</a></div>
+            </td>
           </tr>
           <tr>
             <td colspan=2>
-              Global average for CO<sub>2</sub> in the atmosphere.
+              <div class="desktop">Global average for CO<sub>2</sub> in the atmosphere.</div>
             </td>
             <td>Warm</td>
             <td>Warmer</td>
