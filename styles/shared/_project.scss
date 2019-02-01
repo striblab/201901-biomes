@@ -1,6 +1,14 @@
 /**
  * Project specific styling.
  */
+.hero {
+  max-width: 800px;
+  margin: 0 auto;
+
+  .lead {
+    max-width: 700px;
+  }
+}
 
 .radio-list {
   display: flex;
@@ -109,11 +117,14 @@ table.scenarioTable {
 
   td.scenario {
     padding-top: 0;
-    width: 185px;
+    width: 180px;
     color: #ccc;
     cursor: pointer;
     transition: color 0.333s;
-    &.top-padding{padding-top:1em;}
+
+    &.top-padding {
+      padding-top: 1em;
+    }
 
     .circle {
       display: inline;
