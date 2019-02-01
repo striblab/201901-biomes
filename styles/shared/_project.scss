@@ -5,16 +5,62 @@
   max-width: 800px;
   margin: 0 auto;
 
+  .heroTopper {
+    width: 740px;
+    display:flex;
+    margin: 0 auto 3em;
+
+    .heroText {
+      width: 290px;
+      margin: 0 auto 10px auto;
+      @include font-styles("whitman-display");
+      font-size: 1.4em;
+    }
+
+    .left {
+      flex: left;
+      position: relative;
+
+      .heroTextBox {
+        width: 140px;
+      }
+    }
+
+    .right {
+      flex: right;
+      position: relative;
+    }
+
+    .ppmText {
+      position: absolute;
+      top: 100px;
+      right: 75px;
+      font-size: .65em;
+      text-align: left;
+
+    }
+
+    .heroTextBox {
+      position: absolute;
+      width: 130px;
+      bottom: 80px;
+      right: 0;
+      font-size: .65em;
+      text-align: left;
+    }
+
+    .mapTextBox1 {
+      position: absolute;
+      left: 80px;
+      line-height: 110%;
+      bottom: 100px;
+      color: #FFFFFF;
+      font-size: .9em;
+    }
+  }
+
   .lead {
     max-width: 700px;
-  }
-}
-
-.radio-list {
-  display: flex;
-
-  .radio {
-    width: 90px;
   }
 }
 
@@ -26,7 +72,7 @@
 .currentBiome {
   float: right;
   display: block;
-  margin: 0 -6em 2em 3em;
+  margin: 0 -10em 2em 3em;
 
   .key {
     float: none;
@@ -97,6 +143,12 @@
 }
 
 // SCENARIO TABLE
+h3 {
+  @include font-styles("benton-sans");
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 3.5em 0 0 0;
+}
 
 table.scenarioTable {
   margin-top: 50px;
