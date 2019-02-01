@@ -152,11 +152,11 @@
         if (this.get().infoBox) {
           controlEl.classList.add("map-info-box-content");
           controlEl.innerHTML = `
-                  <div class="mapboxgl-ctrl-icon">
-                   <p class="boxTitle">${this.get().infoTitle}</p>
-                   <p>${this.get().infoBox}</p>
-                  </div>
-                `;
+                      <div class="mapboxgl-ctrl-icon">
+                       <p class="boxTitle">${this.get().infoTitle}</p>
+                       <p>${this.get().infoBox}</p>
+                      </div>
+                    `;
         } else {
           controlEl.classList.remove("map-info-box-content");
           controlEl.innerHTML = "";

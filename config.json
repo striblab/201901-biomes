@@ -25,6 +25,7 @@
   "js": {
     "globals": [
       "https://cdn.polyfill.io/v2/polyfill.min.js",
+      "https://code.jquery.com/jquery-1.12.4.min.js",
       "https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js"
     ]
   },
